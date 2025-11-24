@@ -16,10 +16,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 // import jakarta.validation.constraints.Min;
@@ -72,7 +74,7 @@ public class User {
 
     @Column(name="phone_no", nullable = true, length = 10)
     @Pattern(regexp = "^[0-9]{10}$")
-    @NotBlank
+    // @NotBlank
     private String phone_no;
 
     @Column(name="date", nullable = false)
@@ -83,6 +85,12 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<User_courses> User_user_course_id;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    @NotNull
+    @Column(nullable = false, unique = true)
+    private Cart cart;
 
     enum Role{
         STUDENT, 

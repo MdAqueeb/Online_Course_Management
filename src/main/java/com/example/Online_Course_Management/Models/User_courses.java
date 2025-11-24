@@ -51,11 +51,6 @@ public class User_courses {
     @NotNull
     private Course course;
 
-    // @CreatedDate
-    // @Column(name = "purchase_date", nullable = false)
-    // @NotNull
-    // private LocalDate purchase_date;
-
     @NotNull
     @Column(name = "user_course_progress", nullable = false)
     private int user_course_progress;

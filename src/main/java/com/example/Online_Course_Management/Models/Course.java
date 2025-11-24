@@ -70,6 +70,10 @@ public class Course {
     @Column(name = "course_author", nullable = false)
     private String course_author;
 
+    @NotNull
+    @Column(name = "course_amount", nullable = false, columnDefinition = "DECIMAL(10,2)")
+    private double course_amount;
+
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Course_Module> course_modules;
@@ -77,6 +81,10 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<User_courses> course_user_course_id;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Cart_items> cart_items;
 
     enum isAvailable{
         TRUE, 
