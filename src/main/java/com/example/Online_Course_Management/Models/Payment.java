@@ -30,7 +30,7 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+    // @NotNull
     private Long payment_id;
 
     @Column(name = "tatal_amount", nullable = false, columnDefinition="DECIMAL(10,2)")

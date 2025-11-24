@@ -32,7 +32,7 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+    // @NotNull
     @Column(name = "cart_id", nullable = false)
     private Long cart_id; 
 

@@ -1,6 +1,7 @@
 package com.example.Online_Course_Management.Models;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.hibernate.annotations.Cascade;
@@ -22,6 +23,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 // import jakarta.validation.constraints.Min;
@@ -56,14 +58,14 @@ public class User {
     private String name;
 
     @Builder.Default
-    @NotNull
+    // @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role = Role.STUDENT;
 
     @Column(name = "password", nullable = false)
     @NotBlank
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[@$#&])[A-Za-z0-9]{8,}$",message="Invalid password it must 8 characters, atleast one capital letter and symbols")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[@#$&_])[A-Za-z0-9@#$&_]{8,}$",message="Invalid password it must 8 characters, atleast one capital letter and symbols")
     private String password;
 
     @Column(name = "email", nullable = false, unique = true)
@@ -74,12 +76,12 @@ public class User {
 
     @Column(name="phone_no", nullable = true, length = 10)
     @Pattern(regexp = "^[0-9]{10}$")
-    // @NotBlank
+    @NotBlank
     private String phone_no;
 
     @Column(name="date", nullable = false)
     @Builder.Default 
-    @NotNull
+    // @NotNull
     private LocalDate date = LocalDate.now();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -88,13 +90,19 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
-    @NotNull
-    @Column(nullable = false, unique = true)
+    // @NotNull
+    // @Column(nullable = false, unique = true)
     private Cart cart;
 
     enum Role{
         STUDENT, 
         ADMIN;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if (role == null) role = Role.STUDENT;       // set default role
+        if (date == null) date = LocalDate.now();
     }
 }
 

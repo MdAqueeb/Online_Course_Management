@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class Cart_items {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
+    // @NotNull
     private Long cart_item_id;
 
     @ManyToOne
