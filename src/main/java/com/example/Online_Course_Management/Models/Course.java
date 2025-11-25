@@ -16,6 +16,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -27,21 +28,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Builder
 @Table(name = "courses")
 @Data 
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
     private Long course_id;
 
-    @Pattern(regexp = "^[A-Za-z ]{3,}[0-9#]*$")
-    @NotBlank
-    @Column(name = "course_name", nullable = false)
-    private String course_name;
+    // @Pattern(regexp = "^[A-Za-z ]{3,}[0-9#]*$")
+    // @NotBlank
+    // @Column(name = "course_name", nullable = false)
+    // private String course_name;
 
     @Pattern(regexp = "^[A-Za-z #@$&|]{3,}$", message = "provide correct name")
     @NotBlank(message = "title should be not empty or null")
@@ -55,13 +57,13 @@ public class Course {
     private String course_description;
 
     @Builder.Default
-    @NotNull(message = "course available is not null pass either true or false")
+    // @NotNull(message = "course available is not null pass either true or false")
     @Enumerated(EnumType.STRING)
     @Column(name = "course_available", nullable = false)
     private isAvailable course_available = isAvailable.FALSE;
 
     @CreationTimestamp
-    @NotNull(message = "current date not be null")
+    // @NotNull(message = "current date not be null")
     @Column(name = "course_created_at", nullable = false)
     private LocalDate course_created_at;
 
@@ -72,22 +74,33 @@ public class Course {
 
     @NotNull
     @Column(name = "course_amount", nullable = false, columnDefinition = "DECIMAL(10,2)")
+    // @Builder.Default
     private double course_amount;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     @JsonIgnore
+    // @Builder.Default
     private List<Course_Module> course_modules;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<User_courses> course_user_course_id;
+    // @Builder.Default
+    private List<User_courses> course_user_course_id ;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Cart_items> cart_items;
+    // @Builder.Default
+    private List<Cart_items> cart_items ;
 
     enum isAvailable{
         TRUE, 
         FALSE
+    }
+
+    @PrePersist 
+    void default_values(){
+        if(course_available == null){
+            course_available = isAvailable.FALSE;
+        }
     }
 }
