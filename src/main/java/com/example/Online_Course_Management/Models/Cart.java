@@ -43,13 +43,14 @@ public class Cart {
     private User user;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @NotNull
+    // @NotNull
     @Builder.Default
     private List<Cart_items> cart_items = new ArrayList<>();
 
     @Column(name = "cart_total_amount", nullable = false, columnDefinition = "DECIMAL(10,2)")
-    @NotNull
-    private double cart_total_amount; 
+    // @NotNull
+    @Builder.Default
+    private double cart_total_amount = 0; 
     
 }
 

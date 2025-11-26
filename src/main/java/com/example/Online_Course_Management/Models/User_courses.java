@@ -57,7 +57,7 @@ public class User_courses {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "certificate", nullable = false)
-    @NotNull
+    // @NotNull
     @Builder.Default
     private isCertificated certificate = isCertificated.FALSE;
 
