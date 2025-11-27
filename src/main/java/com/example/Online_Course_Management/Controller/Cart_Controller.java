@@ -6,6 +6,7 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,8 +23,11 @@ public class Cart_Controller {
 
     // get cart 
     @GetMapping("/user/{id}")
-    public ResponseEntity<Cart> getMethodName(@RequestParam("id") Long id) {
+    public ResponseEntity<Cart> getMethodName(@PathVariable("id") Long id) {
         Cart crt = cart_service.getCart(id);
+        if(crt == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(crt,HttpStatus.OK);
     }
     
