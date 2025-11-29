@@ -1,5 +1,7 @@
 package com.example.Online_Course_Management.Models;
 
+import org.hibernate.validator.constraints.URL;
+
 // import org.hibernate.annotations.ManyToAny;
 
 import jakarta.persistence.Column;
@@ -35,6 +37,7 @@ public class Course_Content {
     @JoinColumn(name = "course_module_id", nullable = false)
     private Course_Module course_Module;
 
+    @URL(message = "Enter a valid URL")
     @Column(name = "course_content_url", nullable = false, columnDefinition="TEXT")
     @NotBlank
     private String course_content_url;

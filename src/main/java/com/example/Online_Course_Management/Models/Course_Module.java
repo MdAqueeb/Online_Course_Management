@@ -40,6 +40,11 @@ public class Course_Module {
     @NotNull
     private Course course; 
 
+    @NotNull
+    @Min(1)
+    @Column(name = "module_sequence", nullable = false)
+    private int module_sequence;
+
     @OneToMany(mappedBy = "course_Module")
     private List<Course_Content> course_content_id;
 
