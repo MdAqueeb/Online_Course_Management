@@ -34,7 +34,7 @@ It includes functionality for users, courses, modules, content, cart, and course
 
 ### 1️⃣ Clone Repository
 ```bash
-[https://github.com/MdAqueeb/Online_Course_Management.git]
+https://github.com/MdAqueeb/Online_Course_Management.git
 cd online-course-management
 ```
 ---
@@ -51,7 +51,7 @@ After starting the application, you can view all API endpoints here:
 ![Swagger UI](Images/SwaggerUi.png)
 
 ### Users API
-![Users API](Images/User_Endpoints.png)
+![Users API](Images/User_Endpoints.png) 
 
 ### Courses API
 ![Courses API](Images/Courses_endpoints.png)
@@ -59,3 +59,12 @@ After starting the application, you can view all API endpoints here:
 ### Cart API
 ![Cart API](Images/Cart_Endpoints.png)
 
+--- 
+### Future Enhancements
+
+JWT Authentication
+Instructor admin role
+Course ratings & reviews
+Certificate generation
+Video hosting & streaming
+Payment gateway integration (Razorpay / Stripe)
