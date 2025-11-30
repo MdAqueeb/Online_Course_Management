@@ -48,14 +48,14 @@ After starting the application, you can view all API endpoints here:
 ## 🖼️ Screenshots
 
 ### Swagger UI
-![Swagger UI](images/SwaggerUi.png)
+![Swagger UI](Images/SwaggerUi.png)
 
 ### Users API
-![Users API](images/User_Endpoints.png)
+![Users API](Images/User_Endpoints.png)
 
 ### Courses API
-![Courses API](images/Courses_endpoints.png)
+![Courses API](Images/Courses_endpoints.png)
 
 ### Cart API
-![Cart API](images/Cart_Endpoints.png)
+![Cart API](Images/Cart_Endpoints.png)
 
