@@ -34,7 +34,7 @@ It includes functionality for users, courses, modules, content, cart, and course
 
 ### 1️⃣ Clone Repository
 ```bash
-git clone https://github.com/your-username/online-course-management.git
+[https://github.com/MdAqueeb/Online_Course_Management.git]
 cd online-course-management
 ```
 ---
