@@ -1,2 +1,61 @@
-# Online_Course_Management
-This project is similar like udemy, coursera web applications, It also provide course with dummy certificate after complition of course
+# 🎓 Online Course Management System (Backend API)
+
+A backend system for managing online courses, similar to **Udemy** or **Coursera**, built with **Spring Boot** and **MySQL**.  
+It includes functionality for users, courses, modules, content, cart, and course purchases, with **Swagger API documentation**.
+
+> ⚠️ Note: This project is not deployed, but you can run it locally.
+
+---
+
+## 🛠️ Tech Stack
+
+| Component         | Technology            |
+| ----------------- | ------------------- |
+| Backend           | Spring Boot         |
+| Language          | Java                |
+| Database          | MySQL               |
+| ORM               | Hibernate / JPA     |
+| API Documentation | Swagger (OpenAPI 3) |
+| Build Tool        | Maven               |
+
+---
+
+## 🚀 Features
+
+- **User Management**: Add, update, delete users; update password; admin view all users.  
+- **Course Management**: Create, update, delete courses; fetch courses with pagination.  
+- **Course Modules & Content**: Add modules and content, fetch content by module.  
+- **User Course Purchases**: Buy courses, view purchased courses.  
+- **Cart System**: Add items, view cart, delete items, clear cart.
+
+---
+
+## ⚙️ How to Run Locally
+
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/your-username/online-course-management.git
+cd online-course-management
+```
+---
+
+### 2️⃣ Swagger API Documentation
+
+After starting the application, you can view all API endpoints here:
+
+[Swagger UI](http://localhost:8080/swagger-ui/index.html)
+
+## 🖼️ Screenshots
+
+### Swagger UI
+![Swagger UI](images/SwaggerUi.png)
+
+### Users API
+![Users API](images/User_Endpoints.png)
+
+### Courses API
+![Courses API](images/Courses_endpoints.png)
+
+### Cart API
+![Cart API](images/Cart_Endpoints.png)
+
