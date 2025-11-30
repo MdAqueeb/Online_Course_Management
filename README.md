@@ -62,9 +62,9 @@ After starting the application, you can view all API endpoints here:
 --- 
 ### Future Enhancements
 
-JWT Authentication
-Instructor admin role
-Course ratings & reviews
-Certificate generation
-Video hosting & streaming
-Payment gateway integration (Razorpay / Stripe)
+-JWT Authentication
+-Instructor admin role
+-Course ratings & reviews
+-Certificate generation
+-Video hosting & streaming
+-Payment gateway integration (Razorpay / Stripe)
