@@ -60,11 +60,12 @@ After starting the application, you can view all API endpoints here:
 ![Cart API](Images/Cart_Endpoints.png)
 
 --- 
-### Future Enhancements
+## 📝 Future Enhancements
 
--JWT Authentication
--Instructor admin role
--Course ratings & reviews
--Certificate generation
--Video hosting & streaming
--Payment gateway integration (Razorpay / Stripe)
+- JWT Authentication
+- Instructor/Admin role
+- Course ratings & reviews
+- Certificate generation
+- Video hosting & streaming
+- Payment gateway integration (Razorpay / Stripe)
+
